@@ -1,45 +1,38 @@
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-
+import React, { useEffect, useState } from "react";
+import Header from "../components/Header"; // Import du composant Header
+import SideBar from "../components/SideBar"; // Import du composant SideBar
+import BarChart from "../components/BarChart"; // Import du composant BarChart
+import "../assets/styles/Home.css"; // Import du fichier CSS
 function Home() {
-  const { id } = useParams();
-  const [user, setUser] = useState(null);
+  const [userFirstName, setUserFirstName] = useState("");
 
   useEffect(() => {
-    if (!id) return;
-
-    const fetchUser = async () => {
+    const fetchUserData = async () => {
       try {
-        const res = await fetch(`/user/${id}`);
-        const data = await res.json();
-        setUser(data.data); // on accède directement à l'objet "data"
-      } catch (err) {
-        console.error('Erreur de récupération des données :', err);
+        const userId = 12;
+        const response = await fetch(`http://localhost:3000/user/${userId}`);
+        const userData = await response.json();
+
+        const { firstName } = userData.data.userInfos;
+        setUserFirstName(firstName);
+      } catch (error) {
+        console.error("Erreur lors de la récupération du prénom :", error);
       }
     };
 
-    fetchUser();
-  }, [id]);
-
-  if (!user) return <p>Chargement...</p>;
-
-  const { firstName, lastName, age } = user.userInfos;
-  const { todayScore, keyData } = user;
+    fetchUserData();
+  }, []);
 
   return (
     <div>
-      <h1>Bienvenue, <strong>{firstName}</strong> 👋</h1>
-      <p>Nom complet : {firstName} {lastName}</p>
-      <p>Âge : {age} ans</p>
-      <p>Score du jour : {todayScore * 100}%</p>
-
-      <h3>Données clés :</h3>
-      <ul>
-        <li>Calories : {keyData.calorieCount} kcal</li>
-        <li>Protéines : {keyData.proteinCount} g</li>
-        <li>Glucides : {keyData.carbohydrateCount} g</li>
-        <li>Lipides : {keyData.lipidCount} g</li>
-      </ul>
+      <Header />
+      <SideBar />
+      <main>
+        <h1>Bonjour <span>{userFirstName}</span></h1>
+        <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
+        <BarChart />
+      </main>
+      
     </div>
   );
 }

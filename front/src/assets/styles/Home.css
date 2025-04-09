@@ -1,0 +1,27 @@
+#root {
+    position: absolute;
+    top: 0;
+}
+
+main {
+    position: relative;
+    left: 224px;
+    top: 159px;
+}
+
+h1 {
+    color: #000;
+    font-size: 48px;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+span {
+    color: #FF0101;
+}
+
+p {
+    color: #000;
+    font-size: 18px;
+    font-weight: 400;
+}
