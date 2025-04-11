@@ -1,9 +1,9 @@
 import React from "react";
 import "../assets/styles/SideBar.css"; // Import du fichier CSS
-import icon1 from "../assets/icon1.png"; // Import de l'icône 1
-import icon2 from "../assets/icon2.png"; // Import de l'icône 2
-import icon3 from "../assets/icon3.png"; // Import de l'icône 3
-import icon4 from "../assets/icon4.png"; // Import de l'icône 4
+import icon1 from "../assets/icons/icon1.png"; // Import de l'icône 1
+import icon2 from "../assets/icons/icon2.png"; // Import de l'icône 2
+import icon3 from "../assets/icons/icon3.png"; // Import de l'icône 3
+import icon4 from "../assets/icons/icon4.png"; // Import de l'icône 4
 
 function SideBar() {
   return (

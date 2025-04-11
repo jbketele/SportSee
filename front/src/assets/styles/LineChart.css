@@ -1,0 +1,16 @@
+.line-chart-container {
+  width: 258px;
+  height: max-content;
+  max-width: 800px;
+  margin: 0 ;
+  background-color: #f00;
+}
+
+.chart-title {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 10px;
+  position: absolute;
+  color: white;
+  opacity: 0.5;
+}

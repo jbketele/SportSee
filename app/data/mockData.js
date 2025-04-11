@@ -189,36 +189,36 @@ const USER_PERFORMANCE = [
     {
         userId: 12,
         kind: {
-            1: 'cardio',
-            2: 'energy',
-            3: 'endurance',
-            4: 'strength',
-            5: 'speed',
-            6: 'intensity'
+            1: 'Intensité',
+            2: 'Vitesse',
+            3: 'Force',
+            4: 'Endurance',
+            5: 'Energie',
+            6: 'Cardio'
         },
         data: [
             {
-                value: 80,
+                value: 90,
                 kind: 1
             },
             {
-                value: 120,
+                value: 200,
                 kind: 2
             },
             {
-                value: 140,
+                value: 50,
                 kind: 3
             },
             {
-                value: 50,
+                value: 140,
                 kind: 4
             },
             {
-                value: 200,
+                value: 120,
                 kind: 5
             },
             {
-                value: 90,
+                value: 80,
                 kind: 6
             }
         ]
@@ -226,20 +226,20 @@ const USER_PERFORMANCE = [
     {
         userId: 18,
         kind: {
-            1: 'cardio',
-            2: 'energy',
-            3: 'endurance',
-            4: 'strength',
-            5: 'speed',
-            6: 'intensity'
+            1: 'Intensite',
+            2: 'Vitesse',
+            3: 'Force',
+            4: 'Endurance',
+            5: 'Energie',
+            6: 'Cardio'
         },
         data: [
             {
-                value: 200,
+                value: 110,
                 kind: 1
             },
             {
-                value: 240,
+                value: 220,
                 kind: 2
             },
             {
@@ -251,11 +251,11 @@ const USER_PERFORMANCE = [
                 kind: 4
             },
             {
-                value: 220,
+                value: 240,
                 kind: 5
             },
             {
-                value: 110,
+                value: 200,
                 kind: 6
             }
         ]

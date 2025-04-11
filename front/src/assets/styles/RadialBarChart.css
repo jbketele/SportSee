@@ -1,0 +1,48 @@
+.radial-bar-chart-container {
+  position: relative;
+  width: 258px;
+  height: max-content;
+  background-color: #fbfbfb;
+}
+
+.radial-bar-chart-container .chart-title {
+  text-align: left;
+  font-size: 15px;
+  margin-bottom: 10px;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #000;
+}
+
+.radial-bar-chart-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150px;
+  height: 150px;
+  background-color: #fff;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.radial-bar-chart-score {
+  font-size: 26px;
+  font-weight: 700;
+  color: #000;
+  margin: 0;
+}
+
+.radial-bar-chart-text {
+  font-size: 16px;
+  font-weight: 500;
+  color: #666;
+  margin: 0;
+  text-align: center;
+}

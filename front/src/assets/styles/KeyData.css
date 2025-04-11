@@ -1,0 +1,38 @@
+.key-data {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+.key-data-card {
+display: flex;
+align-items: center;
+background-color: #fbfbfb;
+border-radius: 10px;
+padding: 20px;
+width: 150px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.key-data-icon {
+font-size: 30px;
+margin-right: 10px;
+}
+
+.key-data-info {
+text-align: left;
+}
+
+.key-data-value {
+font-size: 18px;
+font-weight: bold;
+}
+
+.key-data-label {
+font-size: 14px;
+color: #666;
+}
+
+.key-data img {
+    width: 60px;
+}  

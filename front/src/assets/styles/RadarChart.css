@@ -1,0 +1,6 @@
+.radar-chart-container {
+  position: relative;
+  width: 258px;
+  height: max-content;
+  background-color: #282D30;
+}
