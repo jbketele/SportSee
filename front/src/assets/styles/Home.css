@@ -1,30 +1,33 @@
 #root {
-    position: absolute;
-    top: 0;
-    width: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 
+
+
 main {
-    position: relative;
-    left: 224px;
-    top: 159px;
+  position: relative;
+  width: 80vw;
+  left: 17vw;
+  top: 15vh;
 }
 
 h1 {
-    color: #000;
-    font-size: 48px;
-    font-weight: 500;
-    line-height: 24px;
+  color: #000;
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 24px;
 }
 
 span {
-    color: #FF0101;
+  color: #FF0101;
 }
 
 p {
-    color: #000;
-    font-size: 18px;
-    font-weight: 400;
+  color: #000;
+  font-size: 18px;
+  font-weight: 400;
 }
 
 .main-content {
@@ -35,16 +38,16 @@ p {
 }
 
 .charts-container {
-  flex: 3;
+  flex: 1;
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
 }
 
-.charts-container-2{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+.charts-container-2 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .key-data-container {

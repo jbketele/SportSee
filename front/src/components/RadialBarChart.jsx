@@ -42,12 +42,12 @@ const RadialBarChartComponent = () => {
     return (
         <div className="radial-bar-chart-container">
             <h2 className="chart-title">Score</h2>
-            <ResponsiveContainer width="100%" height={300}>
+            <ResponsiveContainer width="100%" height="100%">
                 <RadialBarChart
                     cx="50%"
                     cy="50%"
-                    innerRadius="70%" // Ajusté pour laisser de la place au cercle blanc
-                    outerRadius="80%"
+                    innerRadius="80%" // Ajusté pour laisser de la place au cercle blanc
+                    outerRadius="95%" // Ajusté pour laisser de la place au cercle blanc
                     data={data}
                     startAngle={90}
                     endAngle={endAngle} // Angle dynamique basé sur la valeur

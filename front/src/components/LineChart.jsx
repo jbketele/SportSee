@@ -21,6 +21,20 @@ const CustomTooltip = ({ active, payload }) => {
   return null;
 };
 
+// Composant personnalisé pour le curseur
+const CustomCursor = ({ points }) => {
+  const { x } = points[0]; // Position X du curseur
+  return (
+    <rect
+      x={x} 
+      y={0}
+      width={"100%"} // Largeur du rectangle (modifiable)
+      height={"100%"} // Hauteur du rectangle (modifiable)
+      fill="rgba(0, 0, 0, 0.1)" // Couleur semi-transparente
+    />
+  );
+};
+
 const LineChartComponent = () => {
   const [data, setData] = useState([]);
 
@@ -54,7 +68,7 @@ const LineChartComponent = () => {
   return (
     <div className="line-chart-container">
       <h2 className="chart-title">Durée moyenne des sessions</h2>
-      <ResponsiveContainer width="100%" height={300}>
+      <ResponsiveContainer width="100%" height="100%">
         <LineChart data={data} margin={{ top: 20, right: 20, left: 20, bottom: 20 }}>
           {/* Définition du dégradé linéaire */}
           <defs>
@@ -69,7 +83,10 @@ const LineChartComponent = () => {
             tickLine={false}
             tick={{ fill: "white", opacity: 0.8 }} 
           />
-          <Tooltip content={<CustomTooltip />} />
+          <Tooltip 
+            content={<CustomTooltip />} 
+            cursor={<CustomCursor width={60} height="100%" />} 
+          />
           <Line
             type="monotone"
             dataKey="sessionLength"
@@ -77,6 +94,7 @@ const LineChartComponent = () => {
             strokeOpacity={0.8}
             strokeWidth={2}
             dot={false}
+            activeDot={{ r: 5, fill: "white", strokeWidth: 2 }}
           />
         </LineChart>
       </ResponsiveContainer>

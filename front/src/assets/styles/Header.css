@@ -8,7 +8,7 @@ header {
     padding: 18px 0;
     z-index: 1000;
     position: fixed;
-    top : 0;
+    top: 0;
 }
 
 nav {
@@ -29,9 +29,16 @@ ul {
 li {
     padding: 10px;
 }
+
 li a {
     text-decoration: none;
     color: white;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 500;
+}
+
+@media (min-width: 1440px) {
+    li a {
+        font-size: 24px;
+    }
 }

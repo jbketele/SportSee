@@ -1,6 +1,17 @@
 .radar-chart-container {
   position: relative;
-  width: 258px;
-  height: max-content;
+  width: 17vw;
+  height: 24vh;
   background-color: #282D30;
+  --radius: 50%;
+  --tick-font-size: 10px;
+}
+
+@media (min-width: 1440px) {
+  .radar-chart-container {
+    width: 18vw;
+    height: 27vh;
+    --radius: 60%;
+    --tick-font-size: 16px;
+  }
 }
