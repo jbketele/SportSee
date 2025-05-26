@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import {useParams} from "react-router-dom";
 import {
   LineChart,
   Line,
@@ -36,12 +37,12 @@ const CustomCursor = ({ points }) => {
 };
 
 const LineChartComponent = () => {
+  const { id: userId } = useParams(); // Récupération de l'ID de l'utilisateur depuis les paramètres de l'URL
   const [data, setData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const userId = 12; // ID de l'utilisateur
         const response = await fetch(
           `http://localhost:3000/user/${userId}/average-sessions`
         );
@@ -63,7 +64,7 @@ const LineChartComponent = () => {
     };
 
     fetchData();
-  }, []);
+  });
 
   return (
     <div className="line-chart-container">

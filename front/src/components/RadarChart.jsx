@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import {useParams} from "react-router-dom";
 import {
   Radar,
   RadarChart,
@@ -10,6 +11,7 @@ import {
 import "../assets/styles/RadarChart.css";
 
 const RadarChartComponent = () => {
+  const { id: userId } = useParams(); // Récupération de l'ID de l'utilisateur depuis les paramètres de l'URL
   const [data, setData] = useState([]);
   const [radius, setRadius] = useState('50%');
   const [tickFontSize, setTickFontSize] = useState('10px');
@@ -17,7 +19,6 @@ const RadarChartComponent = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const userId = 12; // ID de l'utilisateur
         const response = await fetch(`http://localhost:3000/user/${userId}/performance`);
         if (!response.ok) {
           throw new Error(`Erreur HTTP : ${response.status}`);
@@ -43,7 +44,7 @@ const RadarChartComponent = () => {
     };
 
     fetchData();
-  }, []);
+  });
 
   useEffect(() => {
     const updateRadius = () => {

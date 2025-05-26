@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,} from "react";
+import {useParams} from "react-router-dom";
 import Header from "../components/Header"; // Import du composant Header
 import SideBar from "../components/SideBar"; // Import du composant SideBar
 import BarChart from "../components/BarChart"; // Import du composant BarChart
@@ -9,14 +10,14 @@ import KeyData from "../components/KeyData";
 import "../assets/styles/Home.css"; // Import du fichier CSS
 
 function Home() {
+  const {id} = useParams();
   const [userFirstName, setUserFirstName] = useState("");
   const [userKeyData, setUserKeyData] = useState(null);
 
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const userId = 12; // ID de l'utilisateur à récupérer
-        const response = await fetch(`http://localhost:3000/user/${userId}`);
+        const response = await fetch(`http://localhost:3000/user/${id}`);
         const userData = await response.json();
 
         const { firstName } = userData.data.userInfos;
@@ -30,7 +31,7 @@ function Home() {
     };
 
     fetchUserData();
-  }, []);
+  }, );
 
   return (
     <div>

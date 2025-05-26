@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
+import {useParams} from "react-router-dom";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import '../assets/styles/BarChart.css'; // Import du fichier CSS
 
 const BarChartComponent = () => {
+  const { id: userId } = useParams(); // Récupération de l'ID de l'utilisateur depuis les paramètres de l'URL
   const [data, setData] = useState([]);
 
   // Fonction pour récupérer les données depuis l'API mockée
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const userId = 12; // ID de l'utilisateur
         const response = await fetch(`http://localhost:3000/user/${userId}/activity`); // URL de l'API mockée
         if (!response.ok) {
           throw new Error(`Erreur HTTP : ${response.status}`);
@@ -30,7 +31,7 @@ const BarChartComponent = () => {
     };
 
     fetchData();
-  }, []);
+  });
 
   // Personnalisation du tooltip
   const CustomTooltip = ({ active, payload }) => {

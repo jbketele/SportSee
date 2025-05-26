@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import {useParams} from "react-router-dom";
 import {
     RadialBarChart,
     RadialBar,
@@ -7,12 +8,12 @@ import {
 import "../assets/styles/RadialBarChart.css";
 
 const RadialBarChartComponent = () => {
+    const { id: userId } = useParams(); // Récupération de l'ID de l'utilisateur depuis les paramètres de l'URL
     const [data, setData] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const userId = 12; // ID de l'utilisateur
                 const response = await fetch(`http://localhost:3000/user/${userId}`);
                 if (!response.ok) {
                     throw new Error(`Erreur HTTP : ${response.status}`);
@@ -34,7 +35,7 @@ const RadialBarChartComponent = () => {
         };
 
         fetchData();
-    }, []);
+    });
 
     // Calcul dynamique de l'angle de fin
     const endAngle = data.length > 0 ? 90 + (360 * data[0].value) / 100 : 90;
