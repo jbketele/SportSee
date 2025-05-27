@@ -1,45 +1,15 @@
-import React, { useEffect, useState } from "react";
-import {useParams} from "react-router-dom";
 import {
-    RadialBarChart,
-    RadialBar,
-    ResponsiveContainer,
+  RadialBarChart,
+  RadialBar,
+  PolarAngleAxis,
+  ResponsiveContainer,
 } from "recharts";
 import "../assets/styles/RadialBarChart.css";
 
-const RadialBarChartComponent = () => {
-    const { id: userId } = useParams(); // Récupération de l'ID de l'utilisateur depuis les paramètres de l'URL
-    const [data, setData] = useState([]);
-
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await fetch(`http://localhost:3000/user/${userId}`);
-                if (!response.ok) {
-                    throw new Error(`Erreur HTTP : ${response.status}`);
-                }
-                const result = await response.json();
-
-                // Utilisation de todayScore ou score
-                const score = result.data.todayScore || result.data.score;
-
-                // Transformation des données pour le graphique
-                const formattedData = [
-                    { name: "Score", value: score * 100 }, // Conversion en pourcentage
-                ];
-
-                setData(formattedData);
-            } catch (error) {
-                console.error("Erreur lors de la récupération des données :", error);
-            }
-        };
-
-        fetchData();
-    });
-
-    // Calcul dynamique de l'angle de fin
-    const endAngle = data.length > 0 ? 90 + (360 * data[0].value) / 100 : 90;
-
+  const RadialBarChartComponent = ({ score }) => {
+    const data = [{ name: "Score", value: score * 100 }];
+    const endAngle = 90 + (360 * (score || 0));
+    
     return (
         <div className="radial-bar-chart-container">
             <h2 className="chart-title">Score</h2>
@@ -74,6 +44,5 @@ const RadialBarChartComponent = () => {
             </div>
         </div>
     );
-};
-
+  }
 export default RadialBarChartComponent;

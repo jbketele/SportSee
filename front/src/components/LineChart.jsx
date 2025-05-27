@@ -1,5 +1,3 @@
-import React, { useEffect, useState } from "react";
-import {useParams} from "react-router-dom";
 import {
   LineChart,
   Line,
@@ -7,7 +5,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-import "../assets/styles/LineChart.css"; // Assurez-vous d'avoir un fichier CSS si nécessaire
+import "../assets/styles/LineChart.css";
 
 // Composant personnalisé pour le Tooltip
 const CustomTooltip = ({ active, payload }) => {
@@ -36,37 +34,7 @@ const CustomCursor = ({ points }) => {
   );
 };
 
-const LineChartComponent = () => {
-  const { id: userId } = useParams(); // Récupération de l'ID de l'utilisateur depuis les paramètres de l'URL
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          `http://localhost:3000/user/${userId}/average-sessions`
-        );
-        if (!response.ok) {
-          throw new Error(`Erreur HTTP : ${response.status}`);
-        }
-        const result = await response.json();
-
-        // Transformation des données pour le graphique
-        const formattedData = result.data.sessions.map((session) => ({
-          day: ["L", "M", "M", "J", "V", "S", "D"][session.day - 1], // Conversion des jours en lettres
-          sessionLength: session.sessionLength,
-        }));
-
-        setData(formattedData);
-      } catch (error) {
-        console.error("Erreur lors de la récupération des données :", error);
-      }
-    };
-
-    fetchData();
-  });
-
-  return (
+const LineChartComponent = ({ data }) => (
     <div className="line-chart-container">
       <h2 className="chart-title">Durée moyenne des sessions</h2>
       <ResponsiveContainer width="100%" height="100%">
@@ -101,6 +69,5 @@ const LineChartComponent = () => {
       </ResponsiveContainer>
     </div>
   );
-};
 
 export default LineChartComponent;
